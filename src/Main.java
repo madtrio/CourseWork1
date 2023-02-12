@@ -21,6 +21,8 @@ public class Main {
         System.out.println("Максимальная зп у " + findMaxSalary());
         System.out.println("Среднее значение зп " + findAverage());
 
+        printShortInfo();
+
     }
 
     private static int sumSalary(){
@@ -61,5 +63,10 @@ public class Main {
     }
     private static double findAverage(){
         return sumSalary() / (double) EMPLOYEES.length;
+    }
+    private static void printShortInfo() {
+        for (Employee employee : EMPLOYEES) {
+            System.out.println(employee.getLastName() + " " + employee.getFirstName());
+        }
     }
 }
