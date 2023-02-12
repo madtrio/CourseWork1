@@ -16,7 +16,19 @@ public class Main {
 
 
         printInfo();
+        System.out.println("Сумма зп: " + sumSalary());
+        System.out.println("Минимальная зп у " + findMinSalary());
+        System.out.println("Максимальная зп у " + findMaxSalary());
+        System.out.println("Среднее значение зп " + findAverage());
 
+    }
+
+    private static int sumSalary(){
+        int sum = 0;
+        for (Employee employee : EMPLOYEES){
+            sum = sum + employee.getSalary();
+        }
+        return sum;
     }
 
     private static void printInfo() {
@@ -25,5 +37,29 @@ public class Main {
         }
     }
 
-
+    private static Employee findMinSalary() {
+        int min = Integer.MAX_VALUE;
+        Employee employee = null;
+        for (Employee emp : EMPLOYEES) {
+            if (emp.getSalary()<min) {
+                min = emp.getSalary();
+                employee = emp;
+            }
+        }
+        return employee;
+    }
+    private static Employee findMaxSalary() {
+        int max = Integer.MIN_VALUE;
+        Employee employee = null;
+        for (Employee emp : EMPLOYEES) {
+            if (emp.getSalary()>max) {
+                max = emp.getSalary();
+                employee = emp;
+            }
+        }
+        return employee;
+    }
+    private static double findAverage(){
+        return sumSalary() / (double) EMPLOYEES.length;
+    }
 }
