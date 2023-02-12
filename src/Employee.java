@@ -37,4 +37,16 @@ public class Employee {
     public int getSalary() {
         return salary;
     }
+
+    @Override
+    public String toString() {
+        return String.format(
+                "id: %d, ФИО: %s %s, № отдела: %d, зарплата :%d",
+                id,
+                lastName,
+                firstName,
+                department,
+                salary
+                );
+    }
 }
